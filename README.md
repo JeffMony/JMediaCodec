@@ -1,2 +1,2 @@
-# MediaCodecDemo
-只使用MediaCodec和SurfaceView 播放视频，不借助MediaPlayer或者其他的播放器。
+# JMediaCodec
+实现MediaCodec并行编码和解码的工作
