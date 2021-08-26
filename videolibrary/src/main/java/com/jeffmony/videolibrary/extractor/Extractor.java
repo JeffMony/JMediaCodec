@@ -129,6 +129,7 @@ public class Extractor {
         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
         mediaMetadataRetriever.setDataSource(path);
         String durationStr = mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION);
+        mediaMetadataRetriever.release();
         return Long.parseLong(durationStr);
     }
 }
