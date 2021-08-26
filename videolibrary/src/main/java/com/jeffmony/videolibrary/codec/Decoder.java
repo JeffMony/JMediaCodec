@@ -65,7 +65,7 @@ public interface Decoder {
      * @param render 是否需要被渲染在surface上
      * @return
      */
-    Frame getOutputFrame(int tag, boolean render);
+    Frame getOutputFrame(int tag);
 
     /**
      * 释放解码之后的数据帧

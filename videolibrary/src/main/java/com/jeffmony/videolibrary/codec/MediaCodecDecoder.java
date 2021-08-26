@@ -79,7 +79,7 @@ public class MediaCodecDecoder implements Decoder {
     }
 
     @Override
-    public Frame getOutputFrame(int tag, boolean render) {
+    public Frame getOutputFrame(int tag) {
         if (tag >= 0) {
             ByteBuffer buffer;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
