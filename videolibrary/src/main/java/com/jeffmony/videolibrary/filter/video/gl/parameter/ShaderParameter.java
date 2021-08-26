@@ -32,12 +32,12 @@ public abstract class ShaderParameter {
     @IntDef({ TYPE_UNIFORM, TYPE_ATTRIBUTE})
     @interface Type {}
 
-    @Type public int type;
-    @NonNull public String name;
+    @Type public int mType;
+    @NonNull public String mName;
 
     protected ShaderParameter(@Type int type, @NonNull String name) {
-        this.type = type;
-        this.name = name;
+        mType = type;
+        mName = name;
     }
 
     /**
@@ -47,11 +47,11 @@ public abstract class ShaderParameter {
     abstract public void apply(int glProgram);
 
     protected int getLocation(int glProgram) {
-        switch (type) {
+        switch (mType) {
             case TYPE_UNIFORM:
-                return GLES20.glGetUniformLocation(glProgram, name);
+                return GLES20.glGetUniformLocation(glProgram, mName);
             case TYPE_ATTRIBUTE:
-                return GLES20.glGetAttribLocation(glProgram, name);
+                return GLES20.glGetAttribLocation(glProgram, mName);
             default:
                 return -1;
         }

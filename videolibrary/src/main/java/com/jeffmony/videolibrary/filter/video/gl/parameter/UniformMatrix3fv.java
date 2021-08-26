@@ -24,11 +24,11 @@ import java.nio.FloatBuffer;
  */
 public class UniformMatrix3fv extends ShaderParameter {
 
-    private int count;
-    private boolean transpose;
-    private float[] matrix;
-    private int offset;
-    private FloatBuffer buffer;
+    private int mCount;
+    private boolean mTranspose;
+    private float[] mMatrix;
+    private int mOffset;
+    private FloatBuffer mBuffer;
 
     /**
      * Create shader parameter
@@ -41,10 +41,10 @@ public class UniformMatrix3fv extends ShaderParameter {
     public UniformMatrix3fv(@NonNull String name, int count, boolean transpose, @NonNull float[] matrix, int offset) {
         super(TYPE_UNIFORM, name);
 
-        this.count = count;
-        this.transpose = transpose;
-        this.matrix = matrix;
-        this.offset = offset;
+        mCount = count;
+        mTranspose = transpose;
+        mMatrix = matrix;
+        mOffset = offset;
     }
 
     /**
@@ -57,17 +57,17 @@ public class UniformMatrix3fv extends ShaderParameter {
     public UniformMatrix3fv(@NonNull String name, int count, boolean transpose, @NonNull FloatBuffer buffer) {
         super(TYPE_UNIFORM, name);
 
-        this.count = count;
-        this.transpose = transpose;
-        this.buffer = buffer;
+        mCount = count;
+        mTranspose = transpose;
+        mBuffer = buffer;
     }
 
     @Override
     public void apply(int glProgram) {
-        if (buffer != null) {
-            GLES20.glUniformMatrix3fv(getLocation(glProgram), count, transpose, buffer);
+        if (mBuffer != null) {
+            GLES20.glUniformMatrix3fv(getLocation(glProgram), mCount, mTranspose, mBuffer);
         } else {
-            GLES20.glUniformMatrix3fv(getLocation(glProgram), count, transpose, matrix, offset);
+            GLES20.glUniformMatrix3fv(getLocation(glProgram), mCount, mTranspose, mMatrix, mOffset);
         }
     }
 }

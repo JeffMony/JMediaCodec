@@ -22,7 +22,7 @@ import androidx.annotation.NonNull;
  */
 public class Uniform1f extends ShaderParameter {
 
-    private float value;
+    private float mValue;
 
     /**
      * Create shader parameter
@@ -31,12 +31,11 @@ public class Uniform1f extends ShaderParameter {
      */
     public Uniform1f(@NonNull String name, float value) {
         super(TYPE_UNIFORM, name);
-
-        this.value = value;
+        mValue = value;
     }
 
     @Override
     public void apply(int glProgram) {
-        GLES20.glUniform1f(getLocation(glProgram), value);
+        GLES20.glUniform1f(getLocation(glProgram), mValue);
     }
 }

@@ -24,8 +24,8 @@ import java.nio.FloatBuffer;
  */
 public class Uniform1fv extends ShaderParameter {
 
-    private int count;
-    private FloatBuffer buffer;
+    private int mCount;
+    private FloatBuffer mBuffer;
 
     /**
      * Create shader parameter
@@ -46,12 +46,12 @@ public class Uniform1fv extends ShaderParameter {
     public Uniform1fv(@NonNull String name, int count, @NonNull FloatBuffer buffer) {
         super(TYPE_UNIFORM, name);
 
-        this.count = count;
-        this.buffer = buffer;
+        mCount = count;
+        mBuffer = buffer;
     }
 
     @Override
     public void apply(int glProgram) {
-        GLES20.glUniform1fv(getLocation(glProgram), count, buffer);
+        GLES20.glUniform1fv(getLocation(glProgram), mCount, mBuffer);
     }
 }

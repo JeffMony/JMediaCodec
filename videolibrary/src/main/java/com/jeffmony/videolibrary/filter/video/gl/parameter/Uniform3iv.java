@@ -24,8 +24,8 @@ import java.nio.IntBuffer;
  */
 public class Uniform3iv extends ShaderParameter {
 
-    private int count;
-    private IntBuffer buffer;
+    private int mCount;
+    private IntBuffer mBuffer;
 
     /**
      * Create shader parameter
@@ -46,12 +46,12 @@ public class Uniform3iv extends ShaderParameter {
     public Uniform3iv(@NonNull String name, int count, @NonNull IntBuffer buffer) {
         super(TYPE_UNIFORM, name);
 
-        this.count = count;
-        this.buffer = buffer;
+        mCount = count;
+        mBuffer = buffer;
     }
 
     @Override
     public void apply(int glProgram) {
-        GLES20.glUniform3iv(getLocation(glProgram), count, buffer);
+        GLES20.glUniform3iv(getLocation(glProgram), mCount, mBuffer);
     }
 }
