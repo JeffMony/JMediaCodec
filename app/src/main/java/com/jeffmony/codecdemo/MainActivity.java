@@ -1,4 +1,4 @@
-package com.android.mediacodedemo;
+package com.jeffmony.codecdemo;
 
 import android.app.Activity;
 import android.content.pm.PackageManager;

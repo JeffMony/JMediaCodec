@@ -1,4 +1,4 @@
-package com.android.mediacodedemo;
+package com.jeffmony.codecdemo;
 
 import android.media.MediaCodec;
 import android.media.MediaExtractor;
